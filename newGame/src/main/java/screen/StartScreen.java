@@ -26,7 +26,7 @@ public class StartScreen implements Screen{
     @Override
     public Screen respondToUserInput(KeyEvent key) {
         if (key.getKeyCode() == KeyEvent.VK_B) {
-            return new WorldScreen(new World());
+            return new ChoiceScreen();
         }
         return this;
 

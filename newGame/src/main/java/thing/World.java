@@ -2,10 +2,14 @@ package thing;
 
 import map.Map;
 import progress.CreateMonster;
+import progress.MonsterThread;
 import progress.State;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class World implements Serializable {
     public static final int WIDTH = 25;
@@ -13,7 +17,10 @@ public class World implements Serializable {
     private Map map;
     private Thing[][] things = new Thing[WIDTH][HEIGHT];
     private Player player1;
+    private Player player2;
     public static int numberOfMonster;
+    private ArrayList<MonsterThread> process = new ArrayList<>();
+    private ArrayList<Runnable> explores= new ArrayList<>();
 
     public World(){
         map = new Map(World.WIDTH);
@@ -207,13 +214,63 @@ public class World implements Serializable {
         }
     }
 
-    public synchronized void dieMonster(Monster monster){
-        numberOfMonster--;
+    /**
+     * 添加线程
+     * @param mt
+     */
+    public synchronized void listenMonsterThread(MonsterThread mt){
+        process.add(mt);
     }
 
+    /**
+     * 移除该线程
+     * @param mt
+     */
+    public synchronized void removeMonsterThread(MonsterThread mt){
+        process.remove(mt);
+    }
+
+//    public synchronized void dieMonster(Monster monster){
+//        numberOfMonster--;
+//    }
+
+    public int getNumberOfMonster(){
+        return process.size();
+    }
 
     public Player getPlayer1(){
         return player1;
+    }
+
+    public synchronized void reStart(){
+        ExecutorService exec = Executors.newFixedThreadPool(process.size());
+
+        for (Runnable r : process){
+            exec.execute(r);
+        }
+        exec.shutdown();
+        reSetExplore();
+    }
+
+
+    public synchronized void addExplore(Runnable t){
+        explores.add(t);
+    }
+
+    public synchronized void removeExplore(Runnable t){
+        explores.remove(t);
+    }
+
+    public void reSetExplore(){
+        if (explores.size() != 0){
+            ExecutorService exec = Executors.newFixedThreadPool(explores.size());
+
+            for (Runnable r : explores){
+                exec.execute(r);
+            }
+            exec.shutdown();
+        }
+
     }
 
 }

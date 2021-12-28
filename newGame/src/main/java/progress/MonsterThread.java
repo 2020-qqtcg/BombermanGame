@@ -1,11 +1,13 @@
 package progress;
 
+import thing.Creature;
 import thing.Monster;
 import thing.World;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class MonsterThread implements Runnable{
+public class MonsterThread implements Runnable, Serializable {
     private Monster monster;
     private World world;
     Random r = new Random();
@@ -17,6 +19,7 @@ public class MonsterThread implements Runnable{
 
         while (!world.setMonster(monster, r.nextInt(World.WIDTH), r.nextInt(World.HEIGHT))){
         }
+        world.listenMonsterThread(this);
         System.out.println("year");
 
     }
@@ -56,6 +59,6 @@ public class MonsterThread implements Runnable{
 
         }
 
-        world.dieMonster(monster);
+        world.removeMonsterThread(this);
     }
 }

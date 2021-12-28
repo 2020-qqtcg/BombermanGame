@@ -2,17 +2,22 @@ package screen;
 
 import asciiPanel.AsciiPanel;
 import progress.State;
+import thing.Creature;
 import thing.Player;
 import thing.Thing;
 import thing.World;
 
 import java.awt.event.KeyEvent;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class WorldScreen implements Screen, Serializable {
     private World world;
     private Thing[][] things;
     private Player player1;
+    private final State state = new State();
 
     public WorldScreen(World world){
         this.world = world;
@@ -49,7 +54,7 @@ public class WorldScreen implements Screen, Serializable {
             State.state = "end";
             return new EndScreen(false);
         }
-        else if (World.numberOfMonster == 0){
+        else if (world.getNumberOfMonster() == 0){
             State.state = "end";
             return new EndScreen(true);
         }
@@ -64,10 +69,28 @@ public class WorldScreen implements Screen, Serializable {
                 case KeyEvent.VK_S -> world.canGoDown(x, y);
                 case KeyEvent.VK_A -> world.canGoLeft(x, y);
                 case KeyEvent.VK_D -> world.canGoRight(x, y);
-                case KeyEvent.VK_J -> new Thread( ()->{player1.attack();} ).start();
+                case KeyEvent.VK_J -> new Thread(()->player1.attack()).start();
+            }
+        }
+        if (State.state.equals("stop") && key.getKeyCode() == KeyEvent.VK_L){
+            try {
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src/main/java/file/data.txt"));
+                oos.writeObject(this);
+                Creature c = player1;
+                System.out.println("load successfully!");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 
         return this;
+    }
+
+    /**
+     * 用于加载存档是重新开启存档线程
+     */
+    public void reSetThread(){
+        world.reStart();
+
     }
 }

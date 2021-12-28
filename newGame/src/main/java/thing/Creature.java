@@ -1,10 +1,17 @@
 package thing;
 
+import progress.DealExplore;
+
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class Creature extends Thing {
     private int x;
     private int y;
     private int numberOfBloom;
     private World world;
+
 
     public Creature(char sign, int live, World world) {
         super(sign, live);
@@ -16,7 +23,7 @@ public class Creature extends Thing {
         Bloom b = world.setBloom(x, y);
         if (b != null){
             try {
-                b.explore();
+                new Thread(new DealExplore(b, world)).start();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -76,5 +83,7 @@ public class Creature extends Thing {
         this.x = x;
         this.y = y;
     }
+
+
 
 }
