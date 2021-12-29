@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8de82137-99dc-48f6-953a-34130b6e7a70" name="更改" comment="更改">
+      <change afterPath="$PROJECT_DIR$/src/main/java/screen/ClientScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/screen/ClientStartScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/thing/WorldTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/file/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/file/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/progress/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progress/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/screen/ChoiceScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/screen/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screen/StartScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/screen/WorldScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screen/WorldScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thing/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thing/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/progress/CreateMonsterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/progress/CreateMonsterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/AsciiCharacterData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/AsciiFont.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/AsciiPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/TileTransformer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/map/Map.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/map/MazeGenerator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/map/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/network/GameClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/network/GameSever.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progress/CreateMonster.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progress/DealExplore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progress/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progress/MonsterThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/progress/State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/screen/ChoiceScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/screen/EndScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/screen/Screen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/screen/StartScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/screen/WorldScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Bloom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Creature.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Fire.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Floor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Flower.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Goods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Monster.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Stone.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Thing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thing/World.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/progress/CreateMonsterTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/thing/ThingTest.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="22xy5vrBSUdYAFmzXoKmJJuLDRE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="项目" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="thing" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="BUNDLED" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="newGame" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="newGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="thing" />
+      <option name="MAIN_CLASS_NAME" value="thing.ThingTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorldTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="newGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="thing" />
+      <option name="MAIN_CLASS_NAME" value="thing.WorldTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorldTest.Test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="newGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="thing" />
+      <option name="MAIN_CLASS_NAME" value="thing.WorldTest" />
+      <option name="METHOD_NAME" value="Test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorldTest.hpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="newGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="thing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="thing" />
+      <option name="MAIN_CLASS_NAME" value="thing.WorldTest" />
+      <option name="METHOD_NAME" value="hpTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ThingTest" />
+      <item itemvalue="JUnit.WorldTest" />
+      <item itemvalue="JUnit.WorldTest.hpTest" />
+      <item itemvalue="JUnit.WorldTest.Test2" />
+      <item itemvalue="应用程序.Main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.Main" />
+        <item itemvalue="JUnit.WorldTest" />
+        <item itemvalue="JUnit.WorldTest.Test2" />
+        <item itemvalue="JUnit.WorldTest.hpTest" />
+        <item itemvalue="JUnit.ThingTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="8de82137-99dc-48f6-953a-34130b6e7a70" name="更改" comment="" />
+      <created>1640793355747</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640793355747</updated>
+      <workItem from="1640801953863" duration="875000" />
+      <workItem from="1640804226066" duration="290000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/newGame$ThingTest.ic" NAME="ThingTest 覆盖结果" MODIFIED="1640798635991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>thing.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/newGame$WorldTest_Test2.ic" NAME="WorldTest.Test2 覆盖结果" MODIFIED="1640799573712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>thing.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/newGame$WorldTest_hpTest.ic" NAME="WorldTest.hpTest 覆盖结果" MODIFIED="1640799265279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>thing.*</FILTER>
+    </SUITE>
+  </component>
+</project>

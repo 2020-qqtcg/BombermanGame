@@ -72,8 +72,6 @@ public class World implements Serializable {
             things[x][y-1] = creature;
             things[x][y] = new Bloom(2000, 1, this);
             things[x][y].setPosition(x, y);
-            System.out.println(creature.getName() + " moveUp");
-            System.out.println(creature.getName() + " setBloom");
             return (Bloom) things[x][y];
         }
         else if (x+1 <= WIDTH-1 && things[x+1][y].getSign() == (char)5){
@@ -81,8 +79,6 @@ public class World implements Serializable {
             things[x+1][y] = creature;
             things[x][y] = new Bloom(2000, 1, this);
             things[x][y].setPosition(x, y);
-            System.out.println(creature.getName() + " moveRight");
-            System.out.println(creature.getName() + " setBloom");
             return (Bloom) things[x][y];
         }
         else if (y+1 <= HEIGHT-1 && things[x][y+1].getSign() == (char)5){
@@ -90,8 +86,6 @@ public class World implements Serializable {
             things[x][y+1] = creature;
             things[x][y] = new Bloom(2000, 1, this);
             things[x][y].setPosition(x, y);
-            System.out.println(creature.getName() + " moveDown");
-            System.out.println(creature.getName() + " setBloom");
             return (Bloom) things[x][y];
         }
         else if (x-1 >= 0 && things[x-1][y].getSign() == (char)5){
@@ -99,8 +93,6 @@ public class World implements Serializable {
             things[x-1][y] = creature;
             things[x][y] = new Bloom(2000, 1, this);
             things[x][y].setPosition(x, y);
-            System.out.println(creature.getName() + " moveLeft");
-            System.out.println(creature.getName() + " setBloom");
             return (Bloom) things[x][y];
         }
         else {
@@ -114,7 +106,6 @@ public class World implements Serializable {
         for(int i = 1; i <= range; i++){
             if (y - i >= 0){
                 if (things[x][y-i].beBroke()){       // 被破坏了,beBroke自带扣一滴血
-                    System.out.println(things[x][y-i].getName() + " is broken.");
                     things[x][y-i] = new Floor();
                     things[x][y-i].setPosition(x, y-i);
 
@@ -122,21 +113,18 @@ public class World implements Serializable {
             }
             if (x + i <= WIDTH ){
                 if (things[x+i][y].beBroke()){
-                    System.out.println(things[x+i][y].getName() + " is broken.");
                     things[x+i][y] = new Floor();
                     things[x+i][y].setPosition(x+i, y);
                 }
             }
             if (y + i <= HEIGHT ){
                 if (things[x][y+i].beBroke()){
-                    System.out.println(things[x][y+i].getName() + " is broken.");
                     things[x][y+i] = new Floor();
                     things[x][y+i].setPosition(x, y+i);
                 }
             }
             if (x - i >= 0 ){
                 if (things[x-i][y].beBroke()){
-                    System.out.println(things[x-i][y].getName() + " is broken.");
                     things[x-i][y] = new Floor();
                     things[x-i][y].setPosition(x-i, y);
                 }
@@ -156,7 +144,6 @@ public class World implements Serializable {
             things[x][y] = new Floor();
             things[x][y].setPosition(x, y);
             things[x][y-1] = creature;
-            System.out.println(creature.getName() + " moveUp");
         }
 
     }
@@ -170,7 +157,6 @@ public class World implements Serializable {
             things[x][y] = new Floor();
             things[x][y].setPosition(x, y);
             things[x][y+1] = creature;
-            System.out.println(creature.getName() + " moveDown");
         }
 
     }
@@ -184,7 +170,6 @@ public class World implements Serializable {
             things[x][y] = new Floor();
             things[x][y].setPosition(x, y);
             things[x-1][y] = creature;
-            System.out.println(creature.getName() + " moveLeft");
         }
 
     }
@@ -198,7 +183,6 @@ public class World implements Serializable {
             things[x][y] = new Floor();
             things[x][y].setPosition(x, y);
             things[x+1][y] = creature;
-            System.out.println(creature.getName() + " moveRight");
         }
 
     }

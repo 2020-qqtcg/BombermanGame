@@ -21,11 +21,16 @@ public class Game extends JFrame implements KeyListener {
         add(terminal);
         pack();
         addKeyListener(this);
+
         screen = new StartScreen();
+
+
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         repaint();
     }
+
 
     @Override
     public void repaint(){

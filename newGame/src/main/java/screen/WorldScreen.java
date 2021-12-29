@@ -45,6 +45,8 @@ public class WorldScreen implements Screen, Serializable {
         terminal.write("A->left", World.WIDTH+1, 11);
         terminal.write("D->right", World.WIDTH+1, 12);
         terminal.write("J->attack", World.WIDTH+1, 13);
+        terminal.write("when stop", World.WIDTH+1, 13);
+        terminal.write("L->save", World.WIDTH+1, 13);
 
     }
 
