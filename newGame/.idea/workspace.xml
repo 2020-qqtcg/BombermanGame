@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de82137-99dc-48f6-953a-34130b6e7a70" name="更改" comment="更改">
-      <change afterPath="$PROJECT_DIR$/src/main/java/screen/ClientScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/screen/ClientStartScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/thing/WorldTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/file/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/file/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/network/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/GameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/progress/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/progress/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screen/ChoiceScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screen/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screen/StartScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screen/WorldScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screen/WorldScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thing/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thing/World.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/progress/CreateMonsterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/progress/CreateMonsterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/AsciiCharacterData.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/AsciiFont.class" beforeDir="false" />
@@ -30,12 +17,14 @@
       <change beforePath="$PROJECT_DIR$/target/classes/map/Node.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/network/GameClient.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/network/GameSever.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/network/doubleGame/Packge.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/progress/CreateMonster.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/progress/DealExplore.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/progress/Game.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/progress/MonsterThread.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/progress/State.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/screen/ChoiceScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/screen/ClientScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/screen/ClientStartScreen.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/screen/EndScreen.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/screen/Screen.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/screen/StartScreen.class" beforeDir="false" />
@@ -54,6 +43,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/thing/World.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/progress/CreateMonsterTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/thing/ThingTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/thing/WorldTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +60,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\maven\repository" />
+        <option name="mavenHome" value="C:/maven/apache-maven-3.8.1" />
+        <option name="userSettingsFile" value="C:\maven\apache-maven-3.8.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="22xy5vrBSUdYAFmzXoKmJJuLDRE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -91,7 +90,7 @@
     <property name="project.structure.last.edited" value="项目" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -198,7 +197,8 @@
       <option name="presentableId" value="Default" />
       <updated>1640793355747</updated>
       <workItem from="1640801953863" duration="875000" />
-      <workItem from="1640804226066" duration="290000" />
+      <workItem from="1640804226066" duration="834000" />
+      <workItem from="1640836515722" duration="4333000" />
     </task>
     <servers />
   </component>
