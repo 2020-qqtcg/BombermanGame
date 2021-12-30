@@ -52,6 +52,37 @@ public class World implements Serializable {
         new CreateMonster(numberOfMonster, this);
     }
 
+    public World(int n){
+        map = new Map(World.WIDTH);
+        player1 = new Player(2, this);  // 玩家出生在游戏的左上角
+        player2 = new Player(2, this);  // 多人游戏第二个玩家将出生在右上角
+        int[][] mapInt = map.getMap();
+        // 初始化地图
+        Random r = new Random();
+        // 利用随机数随机摆放物品
+        for (int i = 0; i < WIDTH; i++){
+            for (int j = 0; j < HEIGHT; j++){
+                if (i == 0 && j == 0){
+                    things[i][j] = player1;
+                    things[i][j].setPosition(i, j);
+                }
+                else if (mapInt[i][j] == 1){
+                    things[i][j] = new Floor();
+                    things[i][j].setPosition(i, j);
+                }
+                else {
+                    switch (r.nextInt(3)){
+                        case 0 -> {things[i][j] = new Flower();things[i][j].setPosition(i, j);}
+                        case 1 -> {things[i][j] = new Stone();things[i][j].setPosition(i, j);}
+                        case 2 -> {things[i][j] = new Tree();things[i][j].setPosition(i, j);}
+                    }
+                }
+            }
+        }
+        numberOfMonster = 6;
+        new CreateMonster(numberOfMonster, this);
+    }
+
     public Thing[][] getThings(){
         return things;
     }

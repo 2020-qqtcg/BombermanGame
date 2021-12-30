@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de82137-99dc-48f6-953a-34130b6e7a70" name="更改" comment="更改">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/file/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/file/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/GameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/GameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/GameSever.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/GameServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/doubleGame/Packge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/doubleGame/Packge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/screen/ClientScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/screen/ClientScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thing/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thing/World.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/AsciiCharacterData.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/asciiPanel/AsciiFont.class" beforeDir="false" />
@@ -44,6 +49,7 @@
       <change beforePath="$PROJECT_DIR$/target/test-classes/progress/CreateMonsterTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/thing/ThingTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/thing/WorldTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sciscn.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../sciscn.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,10 +227,10 @@
     <SUITE FILE_PATH="coverage/newGame$ThingTest.ic" NAME="ThingTest 覆盖结果" MODIFIED="1640798635991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>thing.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/newGame$WorldTest_Test2.ic" NAME="WorldTest.Test2 覆盖结果" MODIFIED="1640799573712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/newGame$WorldTest_hpTest.ic" NAME="WorldTest.hpTest 覆盖结果" MODIFIED="1640799265279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>thing.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/newGame$WorldTest_hpTest.ic" NAME="WorldTest.hpTest 覆盖结果" MODIFIED="1640799265279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/newGame$WorldTest_Test2.ic" NAME="WorldTest.Test2 覆盖结果" MODIFIED="1640799573712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>thing.*</FILTER>
     </SUITE>
   </component>
