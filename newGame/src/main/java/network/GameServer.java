@@ -1,6 +1,16 @@
 package network;
 
+import network.doubleGame.Packge;
+import progress.State;
+import screen.EndScreen;
+import thing.Player;
+import thing.Thing;
+import thing.World;
+
+import java.awt.event.KeyEvent;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -18,6 +28,9 @@ public class GameServer {
     private static final Charset CHARSET = StandardCharsets.UTF_8;
     private ByteBuffer readBuffer = ByteBuffer.allocate(1024);
     private ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
+    private int number = 0;
+    private World world;
+    boolean pre[] = new boolean[3];  // 看玩家是否都点了开始,第三个用来保证只创建一次游戏主体
 
     public GameServer(int port) {
         try {
@@ -58,8 +71,12 @@ public class GameServer {
                     // a connection was accepted by a ServerSocketChannel.
                     SocketChannel socketChannel = serverSocketChannel.accept();
                     socketChannel.configureBlocking(false);
-                    socketChannel.register(selector, SelectionKey.OP_READ);
-                    socketChannel.write(CHARSET.encode("来自服务器的问候: 你好!"));
+                    socketChannel.register(selector, SelectionKey.OP_READ|SelectionKey.OP_WRITE);
+
+                    socketChannel.write(CHARSET.encode("ID"+(number++)));
+
+
+
                 } else if (key.isConnectable()) {
                     // a connection was established with a remote server.
                 } else if (key.isReadable()) {
@@ -70,23 +87,91 @@ public class GameServer {
                         readBuffer.flip();
                         msg += CHARSET.decode(readBuffer).toString();
                     }
+                    if (pre[0] && pre[1] && !pre[2]){  //就绪但没有创建国游戏
+                        world = new World(2);
+                        pre[2] = true;
+                        System.out.println("Game start");
+                    }
+                    else if (pre[0] && pre[1]){   //游戏进行中状态
+                        examOrder(msg);
+                    }
+                    else {
+                        ifPrepare(msg);
+                    }
                     System.out.println(msg);
                     readBuffer.clear();
 
-                    //  给客户端回复消息
-                    writeBuffer.put("服务器对你说: 收到".getBytes());
-                    writeBuffer.flip();
-                    socketChannel.write(writeBuffer);
-                    writeBuffer.clear();
 
-                } else if (key.isWritable()) {
-                    // a channel is ready for writing
+                } else if (key.isWritable()) {      // 向客户端传数据包
+                     //a channel is ready for writing
+                    if (world != null){
+                        SocketChannel channel = (SocketChannel) key.channel();
+                        // 序列化传输
+                        Thing[][] things = world.getThings();
+                        int live0 = world.getPlayer1().getLive();
+                        int live1 = world.getPlayer2().getLive();
+                        Packge pack = new Packge(things, live0, live1);
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        ObjectOutputStream oos = new ObjectOutputStream(bos);
+                        oos.writeObject(pack);
+                        oos.flush();
+                        byte[] temp = bos.toByteArray();
+                        channel.write(ByteBuffer.wrap(temp));
+                    }
+
                 }
 
                 keyIterator.remove();
             }
         }
     }
+
+
+    public boolean examOrder(String msg){
+        if (msg.startsWith("0")){
+            Player player0 = world.getPlayer1();
+            int x = player0.getX();
+            int y = player0.getY();
+            String order = msg.substring(1);
+
+
+            switch (order){
+                case "W" -> world.canGoUp(x, y);
+                case "S" -> world.canGoDown(x, y);
+                case "A" -> world.canGoLeft(x, y);
+                case "D" -> world.canGoRight(x, y);
+                case "J" -> new Thread(player0::attack).start();
+            }
+
+        }
+        else {
+            Player player1 = world.getPlayer2();
+            int x = player1.getX();
+            int y = player1.getY();
+            String order = msg.substring(1);
+
+
+            switch (order){
+                case "W" -> world.canGoUp(x, y);
+                case "S" -> world.canGoDown(x, y);
+                case "A" -> world.canGoLeft(x, y);
+                case "D" -> world.canGoRight(x, y);
+                case "J" -> new Thread(player1::attack).start();
+            }
+        }
+
+        return world.getPlayer1().isLive() && world.getPlayer2().isLive();
+    }
+
+    public void ifPrepare(String msg){
+        if (msg.equals("1A")){
+            pre[1] = true;
+        }
+        else if (msg.equals("0A")){
+            pre[0] = true;
+        }
+    }
+
 
     public static void main(String[] args) throws IOException {
         GameServer chatServer = new GameServer(9000);

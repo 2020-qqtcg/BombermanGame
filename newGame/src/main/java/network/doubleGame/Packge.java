@@ -9,15 +9,21 @@ import java.io.Serializable;
  */
 public class Packge implements Serializable {
     private Thing[][] things;
-    private int lives;
+    private int live0;
+    private int live1;
 
-    public Packge(Thing[][] things, int lives){
-        this.lives = lives;
+    public Packge(Thing[][] things, int live0, int live1){
+        this.live0 = live0;
+        this.live1 = live1;
         this.things = things;
     }
 
-    public int getLives(){
-        return lives;
+    public int getLive0(){
+        return live0;
+    }
+
+    public int getLive1(){
+        return live1;
     }
 
     public Thing[][] getThings(){

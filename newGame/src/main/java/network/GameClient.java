@@ -5,13 +5,17 @@ import asciiPanel.AsciiPanel;
 import network.doubleGame.Packge;
 import progress.Game;
 import screen.ClientScreen;
+import screen.ClientStartScreen;
 import screen.Screen;
+import thing.Thing;
 import thing.World;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.ByteBuffer;
@@ -20,6 +24,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class GameClient extends JFrame implements KeyListener {
@@ -29,7 +34,7 @@ public class GameClient extends JFrame implements KeyListener {
     private Selector selector;
     private static final Charset CHARSET = StandardCharsets.UTF_8;
     private ByteBuffer readBuffer = ByteBuffer.allocate(1024);
-    private int id;
+    private int id = -1;
     private Packge packge;
 
     public GameClient(String host, int port){
@@ -40,7 +45,7 @@ public class GameClient extends JFrame implements KeyListener {
         pack();
         addKeyListener(this);
 
-        screen = new ClientScreen(this);
+        screen = new ClientStartScreen(this);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -66,6 +71,8 @@ public class GameClient extends JFrame implements KeyListener {
             e.printStackTrace();
         }
 
+
+
     }
 
     /**
@@ -75,6 +82,10 @@ public class GameClient extends JFrame implements KeyListener {
 
         socketChannel.write(CHARSET.encode(id + op));
 
+    }
+
+    private void setId(int n){
+        id = n;
     }
 
     /**
@@ -105,13 +116,42 @@ public class GameClient extends JFrame implements KeyListener {
 
                         if (key.isReadable()) {
                             SocketChannel socketChannel = (SocketChannel) key.channel();
-                            StringBuilder msg = new StringBuilder();
-                            while (socketChannel.read(readBuffer) > 0) {
-                                //  从写模式切换为读模式
-                                readBuffer.flip();
-                                msg.append(readBuffer);
+                            if (id != -1){             // 把序列化的package对象反序列化出来
+                                ArrayList<byte[]> pack = new ArrayList<>();
+                                int bufferLen = 0;
+                                while ((socketChannel.read(readBuffer)) > 0){
+                                    readBuffer.flip();
+                                    pack.add(readBuffer.array());
+                                    bufferLen += readBuffer.array().length;
+                                }
+                                byte[] packStream = new byte[bufferLen];
+                                int j = 0;
+                                for (byte[] tempBuffer : pack){
+                                    System.arraycopy(tempBuffer, 0, packStream, j, tempBuffer.length);
+                                    j += tempBuffer.length;
+                                }
+                                ByteArrayInputStream bln = new ByteArrayInputStream(packStream);
+                                ObjectInputStream ois = new ObjectInputStream(bln);
+                                try {
+                                    packge = (Packge) ois.readObject();
+                                } catch (ClassNotFoundException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                            System.out.println(msg);
+                            else {
+                                StringBuilder msg = new StringBuilder();
+                                while (socketChannel.read(readBuffer) > 0) {
+                                    //  从写模式切换为读模式
+                                    readBuffer.flip();
+                                    msg.append(CHARSET.decode(readBuffer));
+                                }
+
+                                if (msg.toString().startsWith("ID")){
+                                    setId(Integer.parseInt(msg.substring(2)));  //获取玩家编号
+                                    System.out.println("ID:" + id);
+                                }
+
+                            }
                             readBuffer.clear();
                         }
 
@@ -130,6 +170,14 @@ public class GameClient extends JFrame implements KeyListener {
 
     public static void main(String[] args) throws IOException {
         GameClient chatClient = new GameClient("127.0.0.1", 9000);
+        while (true){
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            chatClient.repaint();
+        }
     }
 
     @Override

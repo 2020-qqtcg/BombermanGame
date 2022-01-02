@@ -257,6 +257,10 @@ public class World implements Serializable {
         return player1;
     }
 
+    public Player getPlayer2() {
+        return player2;
+    }
+
     public synchronized void reStart(){
         ExecutorService exec = Executors.newFixedThreadPool(process.size());
 

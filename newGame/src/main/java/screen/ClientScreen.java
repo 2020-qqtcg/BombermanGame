@@ -21,27 +21,34 @@ public class ClientScreen implements Screen, Serializable {
     @Override
     public void displayOutput(AsciiPanel terminal) {
         Packge p = gc.getPackge();
-        Thing[][] things= p.getThings();
-        int lives = p.getLives();
 
-        terminal.changeFontSize(20);
-
-        // 显示游戏界面
-        for (int i = 0; i < World.WIDTH; i++){
-            for (int j = 0; j < World.HEIGHT; j++){
-                terminal.write(things[i][j].getSign(), i, j);
+        if (p != null){
+            Thing[][] things= p.getThings();
+            int live0 = p.getLive0();
+            int live1 = p.getLive1();
+            // 显示游戏界面
+            for (int i = 0; i < World.WIDTH; i++){
+                for (int j = 0; j < World.HEIGHT; j++){
+                    terminal.write(things[i][j].getSign(), i, j);
+                }
             }
+            terminal.changeFontSize(20);
+            // 显示游戏右侧菜单界面
+            terminal.write("HP: "+ live0, World.WIDTH+2, 3);
+            terminal.write("HP: "+ live1, World.WIDTH+2, 3);
+            terminal.write("W->up", World.WIDTH+1, 9);
+            terminal.write("S->down", World.WIDTH+1, 10);
+            terminal.write("A->left", World.WIDTH+1, 11);
+            terminal.write("D->right", World.WIDTH+1, 12);
+            terminal.write("J->attack", World.WIDTH+1, 13);
+            terminal.write("when stop", World.WIDTH+1, 13);
+            terminal.write("L->save", World.WIDTH+1, 13);
         }
 
-        // 显示游戏右侧菜单界面
-        terminal.write("HP: "+ lives, World.WIDTH+2, 3);
-        terminal.write("W->up", World.WIDTH+1, 9);
-        terminal.write("S->down", World.WIDTH+1, 10);
-        terminal.write("A->left", World.WIDTH+1, 11);
-        terminal.write("D->right", World.WIDTH+1, 12);
-        terminal.write("J->attack", World.WIDTH+1, 13);
-        terminal.write("when stop", World.WIDTH+1, 13);
-        terminal.write("L->save", World.WIDTH+1, 13);
+
+
+
+
     }
 
     @Override
