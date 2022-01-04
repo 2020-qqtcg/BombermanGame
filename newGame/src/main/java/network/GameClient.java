@@ -2,29 +2,24 @@ package network;
 
 import asciiPanel.AsciiFont;
 import asciiPanel.AsciiPanel;
-import network.doubleGame.Packge;
-import progress.Game;
-import screen.ClientScreen;
+
 import screen.ClientStartScreen;
 import screen.Screen;
-import thing.Thing;
+
 import thing.World;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.net.InetSocketAddress;
-import java.net.Socket;
+
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class GameClient extends JFrame implements KeyListener {
@@ -33,9 +28,9 @@ public class GameClient extends JFrame implements KeyListener {
     private SocketChannel socketChannel;
     private Selector selector;
     private static final Charset CHARSET = StandardCharsets.UTF_8;
-    private ByteBuffer readBuffer = ByteBuffer.allocate(1024);
+    private ByteBuffer readBuffer = ByteBuffer.allocate(2048);
     private int id = -1;
-    private Packge packge;
+    private String data;
 
     public GameClient(String host, int port){
         super("GameClient");
@@ -116,27 +111,37 @@ public class GameClient extends JFrame implements KeyListener {
 
                         if (key.isReadable()) {
                             SocketChannel socketChannel = (SocketChannel) key.channel();
-                            if (id != -1){             // 把序列化的package对象反序列化出来
-                                ArrayList<byte[]> pack = new ArrayList<>();
-                                int bufferLen = 0;
+                            if (id != -1){
+                                String dataTemp = "";
                                 while ((socketChannel.read(readBuffer)) > 0){
                                     readBuffer.flip();
-                                    pack.add(readBuffer.array());
-                                    bufferLen += readBuffer.array().length;
+                                    dataTemp += CHARSET.decode(readBuffer).toString();
                                 }
-                                byte[] packStream = new byte[bufferLen];
-                                int j = 0;
-                                for (byte[] tempBuffer : pack){
-                                    System.arraycopy(tempBuffer, 0, packStream, j, tempBuffer.length);
-                                    j += tempBuffer.length;
-                                }
-                                ByteArrayInputStream bln = new ByteArrayInputStream(packStream);
-                                ObjectInputStream ois = new ObjectInputStream(bln);
-                                try {
-                                    packge = (Packge) ois.readObject();
-                                } catch (ClassNotFoundException e) {
-                                    e.printStackTrace();
-                                }
+                                data = dataTemp;
+
+
+
+                                // 把序列化的package对象反序列化出来
+//                                ArrayList<byte[]> pack = new ArrayList<>();
+//                                int bufferLen = 0;
+//                                while ((socketChannel.read(readBuffer)) > 0){
+//                                    readBuffer.flip();
+//                                    pack.add(readBuffer.array());
+//                                    bufferLen += readBuffer.array().length;
+//                                }
+//                                byte[] packStream = new byte[bufferLen];
+//                                int j = 0;
+//                                for (byte[] tempBuffer : pack){
+//                                    System.arraycopy(tempBuffer, 0, packStream, j, tempBuffer.length);
+//                                    j += tempBuffer.length;
+//                                }
+//                                ByteArrayInputStream bln = new ByteArrayInputStream(packStream);
+//                                ObjectInputStream ois = new ObjectInputStream(bln);
+//                                try {
+//                                    packge = (Packge) ois.readObject();
+//                                } catch (ClassNotFoundException e) {
+//                                    e.printStackTrace();
+//                                }
                             }
                             else {
                                 StringBuilder msg = new StringBuilder();
@@ -164,8 +169,8 @@ public class GameClient extends JFrame implements KeyListener {
         }
     }
 
-    public Packge getPackge(){
-        return packge;
+    public String getData(){
+        return data;
     }
 
     public static void main(String[] args) throws IOException {

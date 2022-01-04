@@ -66,6 +66,10 @@ public class World implements Serializable {
                     things[i][j] = player1;
                     things[i][j].setPosition(i, j);
                 }
+                else if (i == 0 && j == WIDTH-1){
+                    things[i][j] = player2;
+                    things[i][j].setPosition(i, j);
+                }
                 else if (mapInt[i][j] == 1){
                     things[i][j] = new Floor();
                     things[i][j].setPosition(i, j);
@@ -142,13 +146,13 @@ public class World implements Serializable {
 
                 }
             }
-            if (x + i <= WIDTH ){
+            if (x + i <= WIDTH-1 ){
                 if (things[x+i][y].beBroke()){
                     things[x+i][y] = new Floor();
                     things[x+i][y].setPosition(x+i, y);
                 }
             }
-            if (y + i <= HEIGHT ){
+            if (y + i <= HEIGHT-1 ){
                 if (things[x][y+i].beBroke()){
                     things[x][y+i] = new Floor();
                     things[x][y+i].setPosition(x, y+i);

@@ -1,16 +1,11 @@
 package network;
 
-import network.doubleGame.Packge;
-import progress.State;
-import screen.EndScreen;
+import network.doubleGame.Transfer;
 import thing.Player;
 import thing.Thing;
 import thing.World;
 
-import java.awt.event.KeyEvent;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -31,6 +26,7 @@ public class GameServer {
     private int number = 0;
     private World world;
     boolean pre[] = new boolean[3];  // 看玩家是否都点了开始,第三个用来保证只创建一次游戏主体
+
 
     public GameServer(int port) {
         try {
@@ -110,13 +106,16 @@ public class GameServer {
                         Thing[][] things = world.getThings();
                         int live0 = world.getPlayer1().getLive();
                         int live1 = world.getPlayer2().getLive();
-                        Packge pack = new Packge(things, live0, live1);
-                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                        ObjectOutputStream oos = new ObjectOutputStream(bos);
-                        oos.writeObject(pack);
-                        oos.flush();
-                        byte[] temp = bos.toByteArray();
-                        channel.write(ByteBuffer.wrap(temp));
+//                        Packge pack = new Packge(things, live0, live1);
+//                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//                        ObjectOutputStream oos = new ObjectOutputStream(bos);
+//                        oos.writeObject(pack);
+//                        oos.flush();
+//                        byte[] temp = bos.toByteArray();
+//                        channel.write(ByteBuffer.wrap(temp));
+                        String data = Transfer.inTransfer(things, live0, live1);
+                        channel.write(CHARSET.encode(data));
+
                     }
 
                 }
@@ -176,5 +175,7 @@ public class GameServer {
     public static void main(String[] args) throws IOException {
         GameServer chatServer = new GameServer(9000);
         chatServer.listen();
+
+
     }
 }
